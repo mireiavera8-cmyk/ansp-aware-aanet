@@ -10,6 +10,7 @@ MSc thesis · Mireia Vera Massana · Technical University of Denmark
 <img alt="Data: OpenSky ADS-B" src="https://img.shields.io/badge/data-OpenSky%20ADS--B-2E7D32">
 <img alt="Corridor" src="https://img.shields.io/badge/corridor-London%20%E2%80%93%20Frankfurt%20%E2%80%93%20Vienna-555">
 <a href="https://mireiavera8-cmyk.github.io/ansp-aware-aanet/web_visualizer/"><img alt="Interactive map" src="https://img.shields.io/badge/interactive%20map-open-1565C0"></a>
+<a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow"></a>
 </p>
 
 <p align="center">
@@ -107,6 +108,10 @@ Two disclosed uncertainties are carried as bands rather than point values throug
 ## Data and provenance
 
 Recorded inputs only: OpenSky Network ADS-B state vectors (design hour 2023-05-15 08:00–09:00 UTC, validation hour 2023-05-18 17:00–18:00 UTC), EUROCONTROL ANSP airspace polygons (AIRAC 490), Copernicus GLO-90 terrain via Open-Meteo, and a register of ten major-airport DME/VOR beacons. The analysis box is 47–53 °N, 1 °W–18 °E; the OpenSky query box is that box grown by the 370 km radio-horizon reach on every side.
+
+## License
+
+Code is released under the [MIT License](LICENSE). Third-party data in `data/` and `results/` keeps its own terms (EUROCONTROL, Copernicus/ESA, OpenSky Network research use); the raw ADS-B state vectors are not redistributed.
 
 ## Citation
 
