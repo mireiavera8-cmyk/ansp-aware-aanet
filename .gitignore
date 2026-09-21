@@ -1,0 +1,31 @@
+# Raw OpenSky pulls (hundreds of MB): download instructions in data/README.md
+data/*.csv
+!data/terrain_elevation.csv
+!data/terrain_elevation_hex.csv
+
+# Figures: only the ones the thesis uses are tracked (see make_figures.m)
+results/figures/*
+!results/figures/corridor_crossing_map.png
+!results/figures/pinchpoint_map.png
+!results/figures/m2c_beacon_reach.png
+!results/figures/m3b_hotspot_improvement.png
+!results/figures/m3d_pareto_frontier.png
+!results/figures/m7b_throughput_tradeoff.png
+!results/figures/m7c_sensitivity.png
+!results/figures/m8_pct_inter_curves.png
+!results/figures/m8_served_curves.png
+!results/figures/m9_singleton_mechanism.png
+!results/figures/web_visualizer.png
+results/validation/figures/
+
+# MATLAB
+*.asv
+*.m~
+*.autosave
+slprj/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.claude/

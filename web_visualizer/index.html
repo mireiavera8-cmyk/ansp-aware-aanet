@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AANET Ground Infrastructure Explorer</title>
+
+    <!-- Leaflet (CDN — requires internet for map tiles) -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="map"></div>
+
+    <div id="panel">
+        <h1>AANET Ground Infrastructure Explorer</h1>
+        <p class="sub">London–Frankfurt corridor · OpenSky peak hour · M1–M7</p>
+
+        <div class="headline" id="headline">Loading…</div>
+
+        <div id="stats" class="stats">
+            <div class="stat"><span id="s-aircraft">–</span><label>aircraft</label></div>
+            <div class="stat"><span id="s-vectors">–</span><label>state vectors</label></div>
+            <div class="stat"><span id="s-span">–</span><label>minutes</label></div>
+            <div class="stat"><span id="s-ansp">–</span><label>ANSPs</label></div>
+        </div>
+
+        <h2 class="section-title">1 · Corridor dataset (ADS-B)</h2>
+        <div class="layer-toggles">
+            <label class="row"><input type="checkbox" id="t-data-box" checked>
+                <span class="swatch ext"></span>Extended box <span class="row-note">(OpenSky query)</span></label>
+            <label class="row"><input type="checkbox" id="t-corridor" checked>
+                <span class="swatch corridor"></span>Core box <span class="row-note">(GS placement zone)</span></label>
+            <label class="row"><input type="checkbox" id="t-corridor-line" checked>
+                <span class="swatch corridor-line"></span>Corridor reference line</label>
+            <label class="row"><input type="checkbox" id="t-tracks">
+                <span class="swatch" style="background:var(--track);height:3px;border-radius:2px;"></span>Aircraft tracks (congestion, colored by ANSP)</label>
+            <label class="row"><input type="checkbox" id="t-edge-gs">
+                <span class="swatch worst"></span>Worst-case edge station <span class="row-note">(sizes the ring)</span></label>
+            <label class="row"><input type="checkbox" id="t-horizon">
+                <span class="swatch horizon"></span>Radio horizon from those stations</label>
+        </div>
+        <p class="topo-hint" id="geom-hint"></p>
+
+        <h2 class="section-title">2 · ANSP airspace</h2>
+        <div class="layer-toggles">
+            <label class="row"><input type="checkbox" id="t-polys" checked>
+                <span class="swatch" style="background:transparent;border:1.5px solid var(--muted);"></span>ANSP airspace regions</label>
+            <label class="row"><input type="checkbox" id="t-crossings" checked>
+                <span class="swatch crossing"></span>Confirmed border crossings</label>
+            <label class="row"><input type="checkbox" id="t-hotspots">
+                <span class="swatch hotspot"></span>Border hotspots (M2b)</label>
+        </div>
+
+        <h2 class="section-title">3 · Environment &amp; interference</h2>
+        <div class="layer-toggles">
+            <label class="row"><input type="checkbox" id="t-terrain">
+                <span class="swatch terrain"></span>Terrain (elevation / ruggedness)</label>
+            <label class="row"><input type="checkbox" id="t-water">
+                <span class="swatch water"></span>Water-excluded sites</label>
+            <label class="row"><input type="checkbox" id="t-dme">
+                <span class="swatch dme"></span>DME/VOR beacons</label>
+        </div>
+
+        <h2 class="section-title">Ground-station topologies</h2>
+        <div class="topo-toggles" id="topo-toggles"></div>
+        <p class="topo-hint">All at N=12, F=5.5dB — same station count and coverage band, so the only variable is siting logic. Toggle more than one to compare directly.</p>
+
+        <h2 class="section-title">ANSP legend</h2>
+        <div class="ansp-legend" id="ansp-legend"></div>
+
+        <h2 class="section-title">Top border pairs</h2>
+        <div class="pairs-list" id="pairs-list"></div>
+
+        <p class="note" id="note">Loading data…</p>
+    </div>
+
+    <script src="data/viz_data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

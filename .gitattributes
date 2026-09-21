@@ -1,0 +1,10 @@
+* text=auto
+*.m   text
+*.js  text
+*.css text
+*.html text
+*.md  text
+*.csv text
+*.json text
+*.mat binary
+*.png binary
