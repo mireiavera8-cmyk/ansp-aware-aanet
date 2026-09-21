@@ -20,7 +20,7 @@ MSc thesis · Mireia Vera Massana · Technical University of Denmark
 
 ---
 
-## The problem in one paragraph
+##  Introduction
 
 In the three-tier AANET architecture every air-to-air path ends at an LDACS ground station, and where those stations are built has been decided by coverage, cost, spectrum compatibility with DME and worst-served distance. **No published siting method asks who operates the station**, although the standards make ownership decisive: a seamless make-before-break handover is only available between stations of the same provider, and European airspace is split among more than thirty ANSPs whose borders follow states, not traffic. A network can meet every published criterion and still lay an administrative seam across the busiest corridor in Europe. This repository measures that seam with recorded traffic and tests what siting can and cannot do about it.
 
